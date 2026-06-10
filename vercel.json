@@ -4,7 +4,7 @@
   ],
   "env": {
     "RESEND_API_KEY": "re_itLhjVrX_Gte5LD3ChYH8NdRAPegLKkjc",
-    "ADMIN_EMAIL": "wthomasss06@gmail.com",
+    "ADMIN_EMAIL": "wthomasss06@gmail.com" ,
     "FROM_EMAIL": "onboarding@resend.dev"
   }
 }

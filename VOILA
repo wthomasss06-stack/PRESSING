@@ -1,5 +1,5 @@
 git add .
-git commit -m "NEW1" 
+git commit -m "NEW2" 
 git branch -M main 
 git remote add origin https://github.com/wthomasss06-stack/PRESSING.git
  git push -u origin main
