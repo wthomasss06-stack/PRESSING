@@ -1,0 +1,101 @@
+.services-page { padding-top: 0; }
+
+/* ─── HERO ───────────────────────────────────────────────────── */
+.services-hero {
+  min-height: 38vh;
+  display: flex;
+  align-items: flex-end;
+  background:
+    linear-gradient(180deg, rgba(17,19,23,0.7) 0%, rgba(17,19,23,0.95) 100%),
+    url('https://images.unsplash.com/photo-1517677208171-0bc9125f0f2c?w=1600&q=80') center/cover no-repeat;
+  padding: 7rem 5% 4rem;
+}
+
+.services-hero__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.services-hero__title {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  color: var(--clr-text);
+  margin: 0.5rem 0 1rem;
+}
+
+.services-hero__sub {
+  font-size: 1.1rem;
+  color: var(--clr-text-muted);
+  max-width: 560px;
+  line-height: 1.65;
+}
+
+/* ─── GRID ───────────────────────────────────────────────────── */
+.services-grid-section {
+  background: var(--clr-surface);
+  padding: 6rem 5%;
+}
+
+.services-grid-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+/* ─── CARD ───────────────────────────────────────────────────── */
+.service-card {
+  background: var(--clr-surface-low);
+  border: 1px solid rgba(75, 71, 49, 0.2);
+  border-radius: var(--radius-md);
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  transition: border-color var(--transition-mid), transform var(--transition-fast);
+}
+.service-card:hover {
+  border-color: rgba(255, 229, 0, 0.35);
+  transform: translateY(-4px);
+}
+
+.service-card__title {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--clr-text);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.4rem;
+}
+
+.service-card__desc {
+  font-size: 0.9rem;
+  color: var(--clr-text-muted);
+  line-height: 1.65;
+  margin-bottom: 0.75rem;
+}
+
+.service-card__price {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--clr-primary);
+  background: rgba(255, 229, 0, 0.08);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 229, 0, 0.2);
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .services-grid-section { padding: 4rem 5%; }
+}

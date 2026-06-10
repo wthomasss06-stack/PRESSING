@@ -1,0 +1,137 @@
+/* ─── DESIGN TOKENS ─────────────────────────────────────────── */
+:root {
+  /* Brand */
+  --clr-primary:        #FFE500;
+  --clr-primary-dim:    #DEC800;
+  --clr-primary-dark:   #6A5F00;
+  --clr-on-primary:     #201C00;
+
+  /* Surface scale (dark mode) */
+  --clr-bg:             #111317;
+  --clr-surface:        #111317;
+  --clr-surface-low:    #1A1C20;
+  --clr-surface-mid:    #1E2024;
+  --clr-surface-high:   #282A2E;
+  --clr-surface-bright: #37393E;
+  --clr-surface-highest:#333539;
+
+  /* Text */
+  --clr-text:           #E2E2E8;
+  --clr-text-muted:     #C6C6C7;
+  --clr-text-dim:       #979177;
+  --clr-outline:        #4B4731;
+
+  /* Fonts */
+  --font-headline: 'Space Grotesk', sans-serif;
+  --font-body:     'Work Sans', sans-serif;
+
+  /* Radii */
+  --radius-sm:   0.5rem;
+  --radius-md:   0.75rem;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-mid:  0.35s ease;
+}
+
+/* ─── RESET ──────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--clr-bg);
+  color: var(--clr-text);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+/* ─── SCROLLBAR ──────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--clr-surface-low); }
+::-webkit-scrollbar-thumb { background: var(--clr-outline); border-radius: 3px; }
+
+/* ─── MATERIAL SYMBOLS ───────────────────────────────────────── */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  user-select: none;
+}
+.material-symbols-filled {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* ─── UTILITY CLASSES ────────────────────────────────────────── */
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-primary-dim) 100%);
+  color: var(--clr-on-primary);
+  font-family: var(--font-headline);
+  font-weight: 800;
+  font-size: 1rem;
+  border-radius: var(--radius-sm);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+.cta-btn:hover {
+  transform: scale(1.04);
+  box-shadow: 0 8px 24px rgba(255,229,0,0.25);
+}
+
+.ghost-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  border: 2px solid var(--clr-outline);
+  color: var(--clr-text);
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast);
+}
+.ghost-btn:hover { background: rgba(255,255,255,0.07); }
+
+.section-eyebrow {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--clr-primary-dim);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+/* ─── ANIMATED ICON (spin/pulse) ─────────────────────────────── */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0   rgba(255,229,0,0.35); }
+  70%  { box-shadow: 0 0 0 12px rgba(255,229,0,0); }
+  100% { box-shadow: 0 0 0 0   rgba(255,229,0,0); }
+}
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+.icon-animated-pulse { animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite; }
+.icon-animated-float { animation: float-y 3s ease-in-out infinite; }
+.icon-animated-spin  { animation: spin-slow 8s linear infinite; }
