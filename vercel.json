@@ -3,8 +3,8 @@
     { "source": "/api/(.*)", "destination": "/api/$1" }
   ],
   "env": {
-    "RESEND_API_KEY": "@resend_api_key",
-    "ADMIN_EMAIL": "@admin_email",
-    "FROM_EMAIL": "@from_email"
+    "RESEND_API_KEY": "re_itLhjVrX_Gte5LD3ChYH8NdRAPegLKkjc",
+    "ADMIN_EMAIL": "wthomasss06@gmail.com",
+    "FROM_EMAIL": "onboarding@resend.dev"
   }
 }
