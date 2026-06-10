@@ -103,54 +103,8 @@
   opacity: 0;
 }
 
-/* ─── DOTS ───────────────────────────────────────────────────── */
-.hs-dots {
-  position: fixed;
-  right: 2.5rem;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 50;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.hs-dot {
-  display: block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.25);
-  transition: background 0.3s, transform 0.3s;
-}
-.hs-dot--active {
-  background: var(--clr-primary);
-  transform: scale(1.6);
-}
-
-/* ─── SCROLL HINT ────────────────────────────────────────────── */
-.hs-scroll-hint {
-  position: fixed;
-  bottom: 2.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 50;
-  color: rgba(255,255,255,0.5);
-  animation: hs-bounce 1.8s ease-in-out infinite;
-}
-.hs-scroll-hint .material-symbols-outlined {
-  font-size: 2rem;
-}
-
-@keyframes hs-bounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50%       { transform: translateX(-50%) translateY(8px); }
-}
-
 /* ─── MOBILE ─────────────────────────────────────────────────── */
 @media (max-width: 768px) {
   .hs-content { padding: 0 6%; padding-top: 5rem; }
-  .hs-dots { right: 1rem; }
-  .hs-scroll-hint { display: none; }
   .hs-headline { font-size: clamp(2.5rem, 11vw, 4rem); }
 }

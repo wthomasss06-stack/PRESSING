@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react'
+import { useRef } from 'react'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { Observer } from 'gsap/Observer'
@@ -16,21 +16,21 @@ const SLIDES = [
     cta: { label: 'Nos packs', href: '/services' },
   },
   {
-    img: 'https://images.unsplash.com/photo-1517677208171-0bc9125f0f2c?w=1920&q=80',
+    img: 'https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=1920&q=80',
     eyebrow: 'Qualité Pro',
     headline: 'Lavage &\nRepassage',
     sub: 'Équipements industriels, résultat impeccable à chaque fois.',
     cta: { label: 'Voir les services', href: '/services' },
   },
   {
-    img: 'https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?w=1920&q=80',
+    img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80',
     eyebrow: 'Collecte gratuite',
     headline: 'On vient\nchercher',
     sub: 'Livraison 24-48h garantie, à domicile ou au bureau.',
     cta: { label: 'Nous contacter', href: '/contact' },
   },
   {
-    img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80',
+    img: 'https://images.unsplash.com/photo-1517677208171-0bc9125f0f2c?w=1920&q=80',
     eyebrow: 'Sans engagement',
     headline: 'Packs\nMensuels',
     sub: 'De 7 000 F à 40 000 F/mois — pour toute la famille.',
@@ -38,28 +38,30 @@ const SLIDES = [
   },
 ]
 
-export default function HeroSlider() {
+export default function HeroSlider({ onExitBottom }) {
   const containerRef = useRef(null)
   const currentIndex = useRef(-1)
   const animating = useRef(false)
+  const observerRef = useRef(null)
 
   useGSAP(() => {
-    const sections    = gsap.utils.toArray('.hs-section',   containerRef.current)
-    const bgs         = gsap.utils.toArray('.hs-bg',        containerRef.current)
-    const outers      = gsap.utils.toArray('.hs-outer',     containerRef.current)
-    const inners      = gsap.utils.toArray('.hs-inner',     containerRef.current)
-    const headlines   = gsap.utils.toArray('.hs-headline',  containerRef.current)
-    const eyebrows    = gsap.utils.toArray('.hs-eyebrow',   containerRef.current)
-    const subs        = gsap.utils.toArray('.hs-sub',       containerRef.current)
-    const ctaBtns     = gsap.utils.toArray('.hs-cta',       containerRef.current)
-    const wrap        = gsap.utils.wrap(0, sections.length)
+    const sections  = gsap.utils.toArray('.hs-section',  containerRef.current)
+    const bgs       = gsap.utils.toArray('.hs-bg',       containerRef.current)
+    const outers    = gsap.utils.toArray('.hs-outer',    containerRef.current)
+    const inners    = gsap.utils.toArray('.hs-inner',    containerRef.current)
+    const headlines = gsap.utils.toArray('.hs-headline', containerRef.current)
+    const eyebrows  = gsap.utils.toArray('.hs-eyebrow',  containerRef.current)
+    const subs      = gsap.utils.toArray('.hs-sub',      containerRef.current)
+    const ctaBtns   = gsap.utils.toArray('.hs-cta',      containerRef.current)
+    const lastIndex = sections.length - 1
 
     // Initial positions
     gsap.set(outers, { yPercent: 100 })
     gsap.set(inners, { yPercent: -100 })
 
     function gotoSection(rawIndex, direction) {
-      const index = wrap(rawIndex)
+      // Clamp — no wrap, linear from 0 → last
+      const index = Math.max(0, Math.min(rawIndex, lastIndex))
       animating.current = true
       const dFactor = direction === -1 ? -1 : 1
       const prev = currentIndex.current
@@ -84,13 +86,12 @@ export default function HeroSlider() {
           0
         )
         .fromTo(bgs[index], { yPercent: 15 * dFactor }, { yPercent: 0 }, 0)
-        // Eyebrow
-        .fromTo(eyebrows[index],
+        .fromTo(
+          eyebrows[index],
           { autoAlpha: 0, y: 30 * dFactor },
           { autoAlpha: 1, y: 0, duration: 0.8, ease: 'power2.out' },
           0.15
         )
-        // Headline chars — split manually with inline spans rendered below
         .fromTo(
           headlines[index].querySelectorAll('.hs-char'),
           { autoAlpha: 0, yPercent: 150 * dFactor },
@@ -103,7 +104,6 @@ export default function HeroSlider() {
           },
           0.2
         )
-        // Sub + CTA
         .fromTo(
           [subs[index], ctaBtns[index]],
           { autoAlpha: 0, y: 24 * dFactor },
@@ -114,14 +114,30 @@ export default function HeroSlider() {
       currentIndex.current = index
     }
 
-    Observer.create({
+    observerRef.current = Observer.create({
       type: 'wheel,touch,pointer',
       wheelSpeed: -1,
-      onDown: () => !animating.current && gotoSection(currentIndex.current - 1, -1),
-      onUp:   () => !animating.current && gotoSection(currentIndex.current + 1,  1),
       tolerance: 10,
       preventDefault: true,
       target: containerRef.current,
+
+      onDown: () => {
+        if (animating.current) return
+        const next = currentIndex.current + 1
+        if (next > lastIndex) {
+          // Last slide passed → hand off scroll to the page
+          observerRef.current.disable()
+          containerRef.current.style.overflow = 'visible'
+          onExitBottom?.()
+          return
+        }
+        gotoSection(next, 1)
+      },
+
+      onUp: () => {
+        if (animating.current) return
+        gotoSection(currentIndex.current - 1, -1)
+      },
     })
 
     gotoSection(0, 1)
@@ -141,7 +157,6 @@ export default function HeroSlider() {
                 <div className="hs-content">
                   <span className="hs-eyebrow section-eyebrow">{slide.eyebrow}</span>
 
-                  {/* Split headline into chars for GSAP */}
                   <h2 className="hs-headline">
                     {slide.headline.split('\n').map((line, li) => (
                       <span key={li} className="hs-line">
@@ -167,18 +182,6 @@ export default function HeroSlider() {
           </div>
         </section>
       ))}
-
-      {/* Slide indicator dots */}
-      <div className="hs-dots" aria-hidden="true">
-        {SLIDES.map((_, i) => (
-          <span key={i} className="hs-dot" data-index={i} />
-        ))}
-      </div>
-
-      {/* Scroll hint */}
-      <div className="hs-scroll-hint">
-        <span className="material-symbols-outlined">keyboard_arrow_down</span>
-      </div>
     </div>
   )
 }

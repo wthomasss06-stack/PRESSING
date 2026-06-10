@@ -7,13 +7,13 @@ export default function CtaBanner() {
         <h2 className="cta-banner__title">Essayez dès aujourd'hui !</h2>
         <p className="cta-banner__sub">Dites adieu au stress du linge !</p>
         <div className="cta-banner__btns">
-          <a href="tel:0757021089" className="cta-banner__btn cta-banner__btn--dark">
+          <a href="tel:0142507750" className="cta-banner__btn cta-banner__btn--dark">
             <span className="material-symbols-outlined">call</span>
-            07 57 02 10 89
+            01 42 50 77 50
           </a>
-          <a href="tel:0797543283" className="cta-banner__btn cta-banner__btn--white">
-            <span className="material-symbols-outlined">call</span>
-            07 97 54 32 83
+          <a href="/contact" className="cta-banner__btn cta-banner__btn--white">
+            <span className="material-symbols-outlined">mail</span>
+            Nous écrire
           </a>
         </div>
       </div>

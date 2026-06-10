@@ -43,13 +43,9 @@ export default function Footer() {
         <div className="footer__col">
           <h5 className="footer__col-title">Contact</h5>
           <div className="footer__contacts">
-            <a href="tel:0757021089" className="footer__contact-link">
+            <a href="tel:0142507750" className="footer__contact-link">
               <span className="material-symbols-outlined">call</span>
-              07 57 02 10 89
-            </a>
-            <a href="tel:0797543283" className="footer__contact-link">
-              <span className="material-symbols-outlined">call</span>
-              07 97 54 32 83
+              01 42 50 77 50
             </a>
           </div>
           <div className="footer__socials">
