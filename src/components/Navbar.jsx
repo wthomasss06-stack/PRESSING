@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { NavLink, Link } from 'react-router-dom'
+import logoImg from '../assets/logo.png'
 import './Navbar.css'
 
 const NAV_LINKS = [
@@ -22,7 +23,10 @@ export default function Navbar() {
   return (
     <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <Link to="/" className="navbar__brand">
-        MD Laverie Pressing
+        <img src={logoImg} alt="Laverie Plus" className="navbar__logo-img" />
+        <span className="navbar__brand-text">
+          Laverie <span className="navbar__brand-plus">Plus</span>
+        </span>
       </Link>
 
       {/* Desktop nav */}
@@ -56,6 +60,7 @@ export default function Navbar() {
 
       {/* Mobile drawer */}
       <div className={`navbar__drawer ${open ? 'navbar__drawer--open' : ''}`}>
+        <img src={logoImg} alt="Laverie Plus" className="navbar__drawer-logo" />
         {NAV_LINKS.map(({ to, label }) => (
           <NavLink
             key={to}

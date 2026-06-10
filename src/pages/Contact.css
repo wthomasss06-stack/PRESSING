@@ -41,7 +41,7 @@
   padding: 1.1rem 1.4rem;
   transition: border-color var(--transition-mid);
 }
-.contact-info-card:hover { border-color: rgba(255,229,0,0.3); }
+.contact-info-card:hover { border-color: rgba(30,144,255,0.25); }
 
 .contact-info-card__label {
   font-size: 0.7rem;
@@ -175,7 +175,7 @@
 .contact-form__field textarea:focus,
 .contact-form__field select:focus {
   outline: none;
-  border-color: rgba(255,229,0,0.55);
+  border-color: rgba(30,144,255,0.55);
 }
 .contact-form__field input:disabled,
 .contact-form__field textarea:disabled,

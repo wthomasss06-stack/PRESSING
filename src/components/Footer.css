@@ -1,6 +1,6 @@
 .footer {
   background: var(--clr-surface-low);
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid rgba(30, 144, 255, 0.1);
   padding: 5rem 5% 2.5rem;
 }
 
@@ -13,17 +13,35 @@
 }
 
 /* Brand col */
-.footer__logo {
+.footer__logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1.1rem;
+  text-decoration: none;
+}
+
+.footer__logo-img {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+  mix-blend-mode: lighten;
+}
+
+.footer__logo-text {
   font-family: var(--font-headline);
   font-weight: 800;
   font-size: 1.4rem;
-  color: var(--clr-primary);
+  color: var(--clr-text);
   letter-spacing: -0.03em;
-  margin-bottom: 1rem;
+}
+
+.footer__logo-plus {
+  color: var(--clr-accent);
 }
 
 .footer__tagline {
-  color: rgba(226, 226, 232, 0.55);
+  color: rgba(228, 230, 240, 0.55);
   font-size: 0.9rem;
   line-height: 1.65;
   margin-bottom: 1.25rem;
@@ -33,7 +51,7 @@
   display: flex;
   align-items: flex-start;
   gap: 0.5rem;
-  color: rgba(226, 226, 232, 0.45);
+  color: rgba(228, 230, 240, 0.45);
   font-size: 0.85rem;
   line-height: 1.5;
 }
@@ -63,7 +81,7 @@
 }
 
 .footer__list a {
-  color: rgba(226, 226, 232, 0.55);
+  color: rgba(228, 230, 240, 0.55);
   font-size: 0.9rem;
   transition: color var(--transition-fast);
 }
@@ -81,7 +99,7 @@
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  color: rgba(226, 226, 232, 0.55);
+  color: rgba(228, 230, 240, 0.55);
   font-size: 0.9rem;
   transition: color var(--transition-fast);
 }
@@ -102,15 +120,17 @@
   height: 2.4rem;
   border-radius: 50%;
   background: var(--clr-surface-high);
+  border: 1px solid rgba(30, 144, 255, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--clr-text);
-  transition: background var(--transition-fast), color var(--transition-fast);
+  transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
 }
 .footer__social-btn:hover {
   background: var(--clr-primary);
   color: var(--clr-on-primary);
+  border-color: var(--clr-primary);
 }
 .footer__social-btn .material-symbols-outlined { font-size: 1.1rem; }
 
@@ -122,8 +142,8 @@
   max-width: 1200px;
   margin: 3rem auto 0;
   padding-top: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  color: rgba(226, 226, 232, 0.3);
+  border-top: 1px solid rgba(30, 144, 255, 0.07);
+  color: rgba(228, 230, 240, 0.3);
   font-size: 0.8rem;
 }
 

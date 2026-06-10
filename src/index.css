@@ -1,25 +1,42 @@
 /* ─── DESIGN TOKENS ─────────────────────────────────────────── */
+/*  Palette extraite du logo Laverie Plus
+    Bleu principal : #1E90FF  (dodger blue — bulles + cercle)
+    Bleu ciel      : #00BFFF  (deep sky — reflet eau)
+    Vert citron    : #6DD400  (anneau vert du bas)
+    Vert sombre    : #4BA000  (ombre anneau)
+    Blanc          : #FFFFFF  (bulles internes)
+*/
 :root {
-  /* Brand */
-  --clr-primary:        #FFE500;
-  --clr-primary-dim:    #DEC800;
-  --clr-primary-dark:   #6A5F00;
-  --clr-on-primary:     #201C00;
+  /* Brand – bleu principal */
+  --clr-primary:        #1E90FF;
+  --clr-primary-dim:    #1270D0;
+  --clr-primary-dark:   #0A4A8C;
+  --clr-on-primary:     #FFFFFF;
+
+  /* Accent vert */
+  --clr-accent:         #6DD400;
+  --clr-accent-dim:     #4BA000;
+  --clr-accent-dark:    #2D6200;
+  --clr-on-accent:      #0D1F00;
+
+  /* Bleu ciel (highlights) */
+  --clr-sky:            #00BFFF;
+  --clr-sky-dim:        #009FD9;
 
   /* Surface scale (dark mode) */
-  --clr-bg:             #111317;
-  --clr-surface:        #111317;
-  --clr-surface-low:    #1A1C20;
-  --clr-surface-mid:    #1E2024;
-  --clr-surface-high:   #282A2E;
-  --clr-surface-bright: #37393E;
-  --clr-surface-highest:#333539;
+  --clr-bg:             #0C0E12;
+  --clr-surface:        #0C0E12;
+  --clr-surface-low:    #131620;
+  --clr-surface-mid:    #181B28;
+  --clr-surface-high:   #1F2235;
+  --clr-surface-bright: #262B42;
+  --clr-surface-highest:#2C3050;
 
   /* Text */
-  --clr-text:           #E2E2E8;
-  --clr-text-muted:     #C6C6C7;
-  --clr-text-dim:       #979177;
-  --clr-outline:        #4B4731;
+  --clr-text:           #E4E6F0;
+  --clr-text-muted:     #9DA5C0;
+  --clr-text-dim:       #6070A0;
+  --clr-outline:        #1E3060;
 
   /* Fonts */
   --font-headline: 'Space Grotesk', sans-serif;
@@ -82,7 +99,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .cta-btn:hover {
   transform: scale(1.04);
-  box-shadow: 0 8px 24px rgba(255,229,0,0.25);
+  box-shadow: 0 8px 24px rgba(30,144,255,0.35);
 }
 
 .ghost-btn {
@@ -98,7 +115,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border-radius: var(--radius-sm);
   transition: background var(--transition-fast);
 }
-.ghost-btn:hover { background: rgba(255,255,255,0.07); }
+.ghost-btn:hover { background: rgba(30,144,255,0.1); }
 
 .section-eyebrow {
   display: block;
@@ -106,7 +123,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-weight: 900;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--clr-primary-dim);
+  color: var(--clr-accent);
   margin-bottom: 0.75rem;
 }
 
@@ -123,9 +140,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   to   { transform: rotate(360deg); }
 }
 @keyframes pulse-ring {
-  0%   { box-shadow: 0 0 0 0   rgba(255,229,0,0.35); }
-  70%  { box-shadow: 0 0 0 12px rgba(255,229,0,0); }
-  100% { box-shadow: 0 0 0 0   rgba(255,229,0,0); }
+  0%   { box-shadow: 0 0 0 0   rgba(30,144,255,0.4); }
+  70%  { box-shadow: 0 0 0 12px rgba(30,144,255,0); }
+  100% { box-shadow: 0 0 0 0   rgba(30,144,255,0); }
 }
 @keyframes float-y {
   0%, 100% { transform: translateY(0); }

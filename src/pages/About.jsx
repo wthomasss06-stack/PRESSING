@@ -24,7 +24,7 @@ export default function About() {
           <span className="section-eyebrow">Notre Histoire</span>
           <h1 className="section-title about-hero__title">À Propos de Nous</h1>
           <p className="about-hero__sub">
-            MD Laverie Pressing est née d'une conviction simple : vous méritez du temps libre.
+            Laverie Plus est née d'une conviction simple : vous méritez du temps libre.
             Fondée à Abidjan, nous apportons un service de pressing professionnel directement à votre porte.
           </p>
         </div>

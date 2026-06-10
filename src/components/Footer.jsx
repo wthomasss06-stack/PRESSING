@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import logoImg from '../assets/logo.png'
 import './Footer.css'
 
 export default function Footer() {
@@ -7,7 +8,12 @@ export default function Footer() {
       <div className="footer__grid">
         {/* Brand */}
         <div className="footer__brand-col">
-          <div className="footer__logo">MD Laverie Pressing</div>
+          <Link to="/" className="footer__logo-wrap">
+            <img src={logoImg} alt="Laverie Plus" className="footer__logo-img" />
+            <span className="footer__logo-text">
+              Laverie <span className="footer__logo-plus">Plus</span>
+            </span>
+          </Link>
           <p className="footer__tagline">
             Votre linge, notre métier. Service professionnel de lavage et pressing.
           </p>
@@ -63,7 +69,7 @@ export default function Footer() {
       </div>
 
       <div className="footer__bottom">
-        <p>© 2024 MD Laverie Pressing. Tous droits réservés.</p>
+        <p>© 2024 Laverie Plus. Tous droits réservés.</p>
         <p className="footer__credit">
           Fait avec <span style={{ color: 'var(--clr-primary)' }}>♥</span> par AKATech
         </p>

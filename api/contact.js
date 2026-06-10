@@ -36,7 +36,7 @@ export default async function handler(req, res) {
     <div style="font-family:sans-serif;max-width:600px;margin:0 auto">
       <div style="background:#FFE500;padding:24px 32px;border-radius:8px 8px 0 0">
         <h1 style="margin:0;color:#201C00;font-size:1.4rem">
-          📋 Nouveau message — MD Laverie Pressing
+          📋 Nouveau message — Laverie Plus
         </h1>
       </div>
       <div style="background:#1A1C20;padding:32px;color:#E2E2E8;border-radius:0 0 8px 8px">
@@ -68,7 +68,7 @@ export default async function handler(req, res) {
         </h1>
       </div>
       <div style="background:#1A1C20;padding:32px;color:#E2E2E8;border-radius:0 0 8px 8px">
-        <p>Merci d'avoir contacté <strong>MD Laverie Pressing</strong>.</p>
+        <p>Merci d'avoir contacté <strong>Laverie Plus</strong>.</p>
         <p>Nous reviendrons vers vous dans les plus brefs délais.</p>
         <hr style="border:1px solid #282A2E;margin:20px 0"/>
         <p style="color:#979177;font-size:.85rem">
@@ -91,7 +91,7 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         from: FROM_EMAIL,
         to: [ADMIN_EMAIL],
-        subject: `📋 Nouveau contact MD Pressing — ${name}`,
+        subject: `📋 Nouveau contact Laverie Plus — ${name}`,
         html: adminHtml,
       }),
     })
@@ -113,7 +113,7 @@ export default async function handler(req, res) {
         body: JSON.stringify({
           from: FROM_EMAIL,
           to: [email],
-          subject: `✅ Votre message a bien été reçu — MD Laverie Pressing`,
+          subject: `✅ Votre message a bien été reçu — Laverie Plus`,
           html: clientHtml,
         }),
       })
