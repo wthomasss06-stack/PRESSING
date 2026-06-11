@@ -29,28 +29,13 @@
 }
 
 .navbar__logo-img {
-  height: 42px;
+  height: 52px;
   width: auto;
   object-fit: contain;
-  /* logo has black bg — mix-blend for seamless dark navbar */
-  mix-blend-mode: lighten;
   transition: transform var(--transition-fast);
 }
 .navbar__brand:hover .navbar__logo-img {
   transform: scale(1.06);
-}
-
-.navbar__brand-text {
-  font-family: var(--font-headline);
-  font-weight: 700;
-  font-size: 1.2rem;
-  color: var(--clr-text);
-  letter-spacing: -0.02em;
-  white-space: nowrap;
-}
-
-.navbar__brand-plus {
-  color: var(--clr-accent);
 }
 
 /* Desktop links */

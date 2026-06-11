@@ -1,41 +1,36 @@
-import { useRef, useCallback } from 'react'
-import HeroSlider from '../components/HeroSlider'
 import PacksSection from '../components/PacksSection'
 import WhyUs from '../components/WhyUs'
 import CtaBanner from '../components/CtaBanner'
 import './Home.css'
 
-/* ─────────────────────────────────────────────────────────────
-   HOME PAGE
-   · Hero = 100vh, GSAP Observer capture scroll → 4 slides
-   · Après la 4e slide : Observer se désactive, scroll normal
-   · Le reste de la page : Packs → Services → WhyUs → CTA → Footer
-───────────────────────────────────────────────────────────────*/
-
 export default function Home() {
-  const heroWrapRef   = useRef(null)
-  const contentRef    = useRef(null)
-
-  // Called by HeroSlider when user scrolls past slide 4
-  const handleHeroExit = useCallback(() => {
-    // Remove the fixed-height clip on the hero wrapper
-    if (heroWrapRef.current) {
-      heroWrapRef.current.style.height = 'auto'
-      heroWrapRef.current.style.overflow = 'visible'
-    }
-    // Smoothly scroll the page so content comes into view
-    contentRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }, [])
-
   return (
     <main className="home">
-      {/* ── HERO (100vh, scroll intercepted by Observer) ─────── */}
-      <div className="home__hero-wrapper" ref={heroWrapRef}>
-        <HeroSlider onExitBottom={handleHeroExit} />
-      </div>
+      {/* ── HERO simple ──────────────────────────────────────── */}
+      <section className="home-hero">
+        <div className="home-hero__inner">
+          <span className="section-eyebrow">Bienvenue</span>
+          <h1 className="section-title home-hero__title">
+            Votre linge,<br />notre métier
+          </h1>
+          <p className="home-hero__sub">
+            Service professionnel de lavage, repassage et pressing à Abidjan.
+            Collecte gratuite, livraison 24–48h garantie.
+          </p>
+          <div className="home-hero__actions">
+            <a href="/services" className="cta-btn">
+              Nos services
+              <span className="material-symbols-outlined">chevron_right</span>
+            </a>
+            <a href="/contact" className="cta-btn cta-btn--ghost">
+              Nous contacter
+            </a>
+          </div>
+        </div>
+      </section>
 
       {/* ── CONTENT: normal page scroll ─────────────────────── */}
-      <div className="home__content" ref={contentRef}>
+      <div className="home__content">
 
         {/* Packs Mensuels */}
         <PacksSection />

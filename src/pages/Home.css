@@ -1,10 +1,42 @@
 .home {}
 
-/* ── HERO WRAPPER ────────────────────────────────────────────── */
-.home__hero-wrapper {
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
+/* ── HERO SIMPLE ─────────────────────────────────────────────── */
+.home-hero {
+  min-height: 55vh;
+  display: flex;
+  align-items: flex-end;
+  background:
+    linear-gradient(180deg, rgba(17,19,23,0.45) 0%, rgba(17,19,23,0.97) 100%),
+    url('https://images.unsplash.com/photo-1545173168-9f1947eebb8f?w=1920&q=80') center/cover no-repeat;
+  padding: 7rem 5% 4.5rem;
+}
+
+.home-hero__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.home-hero__title {
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  color: var(--clr-text);
+  margin: 0.5rem 0 1.25rem;
+  line-height: 1.05;
+}
+
+.home-hero__sub {
+  font-size: 1.05rem;
+  color: var(--clr-text-muted);
+  max-width: 560px;
+  line-height: 1.7;
+  margin-bottom: 2.25rem;
+}
+
+.home-hero__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 /* After hero: normal document flow */
@@ -205,6 +237,7 @@
   .home-process__steps::after { display: none; }
 }
 @media (max-width: 900px) {
+  .home-hero { min-height: 50vh; padding: 6rem 5% 3.5rem; }
   .home-services__inner { grid-template-columns: 1fr; gap: 3rem; }
   .home-services { padding: 5rem 5%; }
   .home-gallery { grid-template-columns: repeat(3, 1fr); height: 220px; }
@@ -212,6 +245,8 @@
   .home-gallery__item:nth-child(5) { display: none; }
 }
 @media (max-width: 560px) {
+  .home-hero { min-height: 45vh; padding: 5.5rem 5% 3rem; }
+  .home-hero__actions { flex-direction: column; align-items: flex-start; }
   .home-gallery { grid-template-columns: repeat(2, 1fr); height: 180px; }
   .home-gallery__item:nth-child(3) { display: none; }
   .home-process__steps { grid-template-columns: 1fr; }

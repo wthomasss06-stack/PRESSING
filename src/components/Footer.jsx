@@ -10,9 +10,6 @@ export default function Footer() {
         <div className="footer__brand-col">
           <Link to="/" className="footer__logo-wrap">
             <img src={logoImg} alt="Laverie Plus" className="footer__logo-img" />
-            <span className="footer__logo-text">
-              Laverie <span className="footer__logo-plus">Plus</span>
-            </span>
           </Link>
           <p className="footer__tagline">
             Votre linge, notre métier. Service professionnel de lavage et pressing.
@@ -71,7 +68,15 @@ export default function Footer() {
       <div className="footer__bottom">
         <p>© 2024 Laverie Plus. Tous droits réservés.</p>
         <p className="footer__credit">
-          Fait avec <span style={{ color: 'var(--clr-primary)' }}>♥</span> par AKATech
+          Conçu par{' '}
+          <a
+            href="https://akatech.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer__credit-link"
+          >
+            AKATech
+          </a>
         </p>
       </div>
     </footer>

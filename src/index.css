@@ -102,6 +102,17 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   box-shadow: 0 8px 24px rgba(30,144,255,0.35);
 }
 
+.cta-btn--ghost {
+  background: transparent;
+  border: 2px solid rgba(228,230,240,0.25);
+  color: var(--clr-text);
+}
+.cta-btn--ghost:hover {
+  background: rgba(228,230,240,0.08);
+  border-color: var(--clr-text);
+  box-shadow: none;
+}
+
 .ghost-btn {
   display: inline-flex;
   align-items: center;

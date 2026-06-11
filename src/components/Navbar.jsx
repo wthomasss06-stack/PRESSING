@@ -24,9 +24,6 @@ export default function Navbar() {
     <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <Link to="/" className="navbar__brand">
         <img src={logoImg} alt="Laverie Plus" className="navbar__logo-img" />
-        <span className="navbar__brand-text">
-          Laverie <span className="navbar__brand-plus">Plus</span>
-        </span>
       </Link>
 
       {/* Desktop nav */}
